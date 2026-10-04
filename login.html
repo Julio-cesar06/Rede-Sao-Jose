@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login - Rede São José</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="cabecalho">
+
+    <div class="logo">
+
+        <h1>
+            Rede São José
+        </h1>
+
+        <p>
+            Área Administrativa
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="login-container">
+
+
+    <div class="login-card">
+
+
+        <h2>
+            🔐 Acesso Administrativo
+        </h2>
+
+
+        <p>
+            Entre com seus dados para acessar a administração.
+        </p>
+
+
+        <form id="form-login">
+
+
+            <label for="usuario">
+                Usuário
+            </label>
+
+
+            <input
+                type="text"
+                id="usuario"
+                placeholder="Digite seu usuário"
+                required
+            >
+
+
+            <label for="senha">
+                Senha
+            </label>
+
+
+            <input
+                type="password"
+                id="senha"
+                placeholder="Digite sua senha"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="botao-login"
+            >
+                Entrar
+            </button>
+
+
+        </form>
+
+
+        <p
+            id="mensagem-login"
+            class="mensagem-login"
+        ></p>
+
+
+        <a
+            href="index.html"
+            class="login-voltar"
+        >
+            ← Voltar para a página inicial
+        </a>
+
+
+    </div>
+
+
+</main>
+
+
+<script>
+
+const formLogin =
+    document.getElementById("form-login");
+
+
+formLogin.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const usuario =
+            document.getElementById("usuario").value.trim();
+
+
+        const senha =
+            document.getElementById("senha").value;
+
+
+        const mensagem =
+            document.getElementById("mensagem-login");
+
+
+        const usuarioCorreto =
+            "admin";
+
+
+        const senhaCorreta =
+            "123456";
+
+
+        if (
+            usuario === usuarioCorreto &&
+            senha === senhaCorreta
+        ) {
+
+            sessionStorage.setItem(
+                "adminLogado",
+                "true"
+            );
+
+
+            window.location.href =
+                "admin.html";
+
+
+        } else {
+
+            mensagem.textContent =
+                "Usuário ou senha incorretos.";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

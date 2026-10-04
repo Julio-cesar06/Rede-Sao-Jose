@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Administração - Rede São José</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <!-- PROTEÇÃO DA ÁREA ADMINISTRATIVA -->
+
+    <script>
+
+        if (sessionStorage.getItem("adminLogado") !== "true") {
+
+            window.location.href = "login.html";
+
+        }
+
+    </script>
+
+</head>
+
+
+<body>
+
+
+<header class="cabecalho">
+
+    <div class="logo">
+
+        <h1>
+            Rede São José
+        </h1>
+
+        <p>
+            Área Administrativa
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="admin-container">
+
+
+    <!-- BOTÃO VOLTAR -->
+
+    <div class="admin-voltar-inicio">
+
+        <a href="index.html">
+            ← Voltar para a página inicial
+        </a>
+
+    </div>
+
+
+    <!-- PAINEL ADMINISTRATIVO -->
+
+    <section class="admin-painel">
+
+        <h2>
+            Painel Administrativo
+        </h2>
+
+        <p>
+            Escolha um catálogo para gerenciar os produtos.
+        </p>
+
+
+        <div class="admin-catalogos">
+
+
+            <!-- MEDICAMENTOS -->
+
+            <div class="admin-card">
+
+                <div class="admin-card-icone">
+                    💊
+                </div>
+
+                <h3>
+                    Medicamentos
+                </h3>
+
+                <p>
+                    Gerencie os medicamentos da farmácia.
+                </p>
+
+                <a
+                    href="admin-medicamentos.html"
+                    class="admin-botao"
+                >
+                    Gerenciar
+                </a>
+
+            </div>
+
+
+            <!-- PERFUMARIA -->
+
+            <div class="admin-card">
+
+                <div class="admin-card-icone">
+                    🌸
+                </div>
+
+                <h3>
+                    Perfumaria
+                </h3>
+
+                <p>
+                    Gerencie os produtos de perfumaria.
+                </p>
+
+                <a
+                    href="admin-perfumaria.html"
+                    class="admin-botao"
+                >
+                    Gerenciar
+                </a>
+
+            </div>
+
+
+            <!-- COSMÉTICOS -->
+
+            <div class="admin-card">
+
+                <div class="admin-card-icone">
+                    💄
+                </div>
+
+                <h3>
+                    Cosméticos
+                </h3>
+
+                <p>
+                    Gerencie os produtos de cosméticos.
+                </p>
+
+                <a
+                    href="admin-cosmeticos.html"
+                    class="admin-botao"
+                >
+                    Gerenciar
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BOTÃO SAIR -->
+
+        <div class="admin-sair-container">
+
+            <button
+                type="button"
+                class="admin-botao-sair"
+                onclick="sairAdministracao()"
+            >
+                🚪 Sair da administração
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<script>
+
+function sairAdministracao() {
+
+    sessionStorage.removeItem("adminLogado");
+
+    window.location.href = "login.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

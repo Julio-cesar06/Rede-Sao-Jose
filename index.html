@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Rede São José - Farmácia</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         ACESSO ADMINISTRATIVO
+    ========================================== -->
+
+    <div class="acesso-administrativo">
+
+        <a href="login.html">
+            🔐 Área Administrativa
+        </a>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         CABEÇALHO
+    ========================================== -->
+
+    <header class="cabecalho">
+
+
+        <!-- LOGOMARCA -->
+
+        <div class="logo">
+
+            <img
+                src="images/sao-jose.jpg"
+                alt="Logo Rede São José"
+            >
+
+            <h1>
+                Rede São José
+            </h1>
+
+            <p>
+                Sua saúde em boas mãos
+            </p>
+
+        </div>
+
+
+
+        <!-- MENU -->
+
+        <nav class="menu">
+
+            <a href="#inicio">
+                Início
+            </a>
+
+            <a href="#catalogos">
+                Catálogos
+            </a>
+
+            <a href="#contato">
+                Contato
+            </a>
+
+        </nav>
+
+
+    </header>
+
+
+
+    <!-- ==========================================
+         INÍCIO
+    ========================================== -->
+
+    <section
+        id="inicio"
+        class="inicio"
+    >
+
+
+        <div class="inicio-texto">
+
+
+            <h2>
+                Bem-vindo à Rede São José
+            </h2>
+
+
+            <p>
+
+                Encontre medicamentos,
+                produtos de perfumaria,
+                cosméticos e muito mais.
+
+            </p>
+
+
+            <a
+                href="#catalogos"
+                class="botao-principal"
+            >
+
+                Ver nossos produtos
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         CARROSSEL DE OFERTAS
+    ========================================== -->
+
+    <section
+        id="ofertas"
+        class="ofertas"
+    >
+
+        <div class="ofertas-titulo">
+
+            <h2>
+                🔥 Ofertas Relâmpago
+            </h2>
+
+            <p>
+                Aproveite nossas promoções especiais
+            </p>
+
+        </div>
+
+
+        <div class="carrossel-container">
+
+
+            <!-- SETA ESQUERDA -->
+
+            <button
+                class="seta-oferta esquerda"
+                id="oferta-anterior"
+                type="button"
+            >
+
+                ‹
+
+            </button>
+
+
+
+            <!-- ÁREA DAS OFERTAS -->
+
+            <div
+                class="carrossel-ofertas"
+                id="carrossel-ofertas"
+            >
+
+                <!--
+                    Os produtos em promoção
+                    serão colocados aqui
+                    automaticamente pelo sistema.
+                -->
+
+            </div>
+
+
+
+            <!-- SETA DIREITA -->
+
+            <button
+                class="seta-oferta direita"
+                id="proxima-oferta"
+                type="button"
+            >
+
+                ›
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- INDICADORES -->
+
+        <div
+            class="indicadores-ofertas"
+            id="indicadores-ofertas"
+        ></div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         CATÁLOGOS
+    ========================================== -->
+
+    <section
+        id="catalogos"
+        class="catalogos"
+    >
+
+
+        <h2>
+            Nossos Catálogos
+        </h2>
+
+
+        <p class="subtitulo">
+
+            Escolha uma categoria para
+            conhecer nossos produtos
+
+        </p>
+
+
+
+        <!-- PESQUISA -->
+
+        <div class="pesquisa">
+
+
+            <input
+                type="text"
+                id="campo-pesquisa"
+                placeholder="🔎 Pesquisar produto..."
+                oninput="pesquisarProdutos()"
+            >
+
+
+        </div>
+
+
+
+        <!-- BOTÕES DOS CATÁLOGOS -->
+
+        <div class="botoes-catalogo">
+
+
+            <a
+                href="medicamentos.html"
+                class="botao-catalogo"
+            >
+
+                💊
+
+                <span>
+                    Medicamentos
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="perfumaria.html"
+                class="botao-catalogo"
+            >
+
+                🌸
+
+                <span>
+                    Perfumaria
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="cosmeticos.html"
+                class="botao-catalogo"
+            >
+
+                💄
+
+                <span>
+                    Cosméticos
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         CONTATO
+    ========================================== -->
+
+    <section
+        id="contato"
+        class="contato"
+    >
+
+
+        <h2>
+            Entre em contato
+        </h2>
+
+
+        <p>
+
+            Fale conosco pelo WhatsApp
+            ou acompanhe nossas novidades
+            pelo Instagram.
+
+        </p>
+
+
+
+        <div class="botoes-contato">
+
+
+            <a
+                href="https://wa.me/5562993149878"
+                class="botao-whatsapp grande"
+                target="_blank"
+            >
+
+                📱 WhatsApp
+
+            </a>
+
+
+
+            <a
+                href="https://instagram.com/aredesaojose"
+                class="botao-instagram"
+                target="_blank"
+            >
+
+                📸 Instagram
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="endereco">
+
+
+            <h3>
+                📍 Nosso endereço
+            </h3>
+
+
+            <p>
+
+                Rua Benjamin Constant, nº 664<br>
+                Centro - Anápolis / GO<br>
+                CEP: 75043-010
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         RODAPÉ
+    ========================================== -->
+
+    <footer>
+
+
+        <h3>
+            Rede São José
+        </h3>
+
+
+        <p>
+            Sua saúde em boas mãos.
+        </p>
+
+
+        <p class="copyright">
+
+            ©️ 2026 Rede São José -
+            Todos os direitos reservados.
+
+        </p>
+
+
+    </footer>
+
+
+
+    <!-- ==========================================
+         BOTÃO DO CARRINHO
+    ========================================== -->
+
+    <button
+        class="botao-carrinho"
+        id="botao-carrinho"
+        type="button"
+    >
+
+        🛒
+
+        <span id="quantidade-carrinho">
+            0
+        </span>
+
+    </button>
+
+
+
+    <!-- ==========================================
+         CARRINHO
+    ========================================== -->
+
+    <div
+        class="carrinho"
+        id="carrinho"
+    >
+
+
+        <!-- CABEÇALHO -->
+
+        <div class="carrinho-cabecalho">
+
+            <h2>
+                🛒 Seu carrinho
+            </h2>
+
+            <button
+                id="fechar-carrinho"
+                type="button"
+            >
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             ITENS
+        ========================================== -->
+
+        <div
+            id="itens-carrinho"
+            class="itens-carrinho"
+        >
+
+            <!-- Produtos adicionados pelo JavaScript -->
+
+        </div>
+
+
+
+        <!-- ==========================================
+             TOTAL
+        ========================================== -->
+
+        <div class="carrinho-total">
+
+            <strong>
+                Total:
+            </strong>
+
+            <span id="total-carrinho">
+                R$ 0,00
+            </span>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             DADOS DO CLIENTE
+        ========================================== -->
+
+        <div class="checkout-form">
+
+
+            <h3>
+                📋 Dados para finalizar o pedido
+            </h3>
+
+
+            <!-- NOME -->
+
+            <label for="nome-cliente">
+                Nome:
+            </label>
+
+            <input
+                type="text"
+                id="nome-cliente"
+                placeholder="Digite seu nome"
+            >
+
+
+
+            <!-- TELEFONE -->
+
+            <label for="telefone-cliente">
+                Telefone:
+            </label>
+
+            <input
+                type="tel"
+                id="telefone-cliente"
+                placeholder="Digite seu telefone"
+            >
+
+
+
+            <!-- ENTREGA / RETIRADA -->
+
+            <label for="tipo-entrega">
+                Como deseja receber?
+            </label>
+
+            <select
+                id="tipo-entrega"
+                onchange="mostrarEndereco()"
+            >
+
+                <option value="">
+                    Selecione uma opção
+                </option>
+
+                <option value="Entrega">
+                    🚚 Entrega
+                </option>
+
+                <option value="Retirada na farmácia">
+                    🏪 Retirada na farmácia
+                </option>
+
+            </select>
+
+
+
+            <!-- ENDEREÇO -->
+
+            <div
+                id="campo-endereco"
+                style="display: none;"
+            >
+
+                <label for="endereco-cliente">
+                    Endereço para entrega:
+                </label>
+
+                <textarea
+                    id="endereco-cliente"
+                    placeholder="Digite seu endereço completo"
+                    rows="3"
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- PAGAMENTO -->
+
+            <label for="forma-pagamento">
+                Forma de pagamento:
+            </label>
+
+            <select
+                id="forma-pagamento"
+            >
+
+                <option value="">
+                    Selecione uma opção
+                </option>
+
+                <option value="Pix">
+                    💠 Pix
+                </option>
+
+                <option value="Dinheiro">
+                    💵 Dinheiro
+                </option>
+
+                <option value="Cartão de crédito">
+                    💳 Cartão de crédito
+                </option>
+
+                <option value="Cartão de débito">
+                    💳 Cartão de débito
+                </option>
+
+            </select>
+
+
+
+            <!-- OBSERVAÇÃO -->
+
+            <label for="observacao-pedido">
+                Observação:
+            </label>
+
+            <textarea
+                id="observacao-pedido"
+                placeholder="Alguma observação sobre o pedido? (opcional)"
+                rows="3"
+            ></textarea>
+
+
+        </div>
+
+
+
+        <!-- ==========================================
+             BOTÃO FINALIZAR
+        ========================================== -->
+
+        <button
+            class="botao-finalizar"
+            id="finalizar-compra"
+            type="button"
+            onclick="finalizarPedido()"
+        >
+
+            📲 Finalizar pedido pelo WhatsApp
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

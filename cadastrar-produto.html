@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cadastrar Produto - Rede São José</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <!-- PROTEÇÃO DA ÁREA ADMINISTRATIVA -->
+
+    <script>
+
+        if (sessionStorage.getItem("adminLogado") !== "true") {
+
+            window.location.href = "login.html";
+
+        }
+
+    </script>
+
+
+</head>
+
+
+<body class="pagina-cadastro">
+
+
+<header class="cabecalho">
+
+    <div class="logo">
+
+        <img
+            src="images/sao-jose.jpg"
+            alt="Logo Rede São José"
+        >
+
+        <div>
+
+            <h1>
+                Rede São José
+            </h1>
+
+            <p id="subtitulo-pagina">
+                Cadastro de Produto
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="admin.html"
+        class="admin-voltar"
+    >
+        ← Voltar
+    </a>
+
+</header>
+
+
+<main class="cadastro-container">
+
+
+    <section class="cadastro-card">
+
+
+        <div class="cadastro-titulo">
+
+            <h2 id="titulo-formulario">
+                📦 Cadastrar novo produto
+            </h2>
+
+            <p id="descricao-formulario">
+                Preencha as informações abaixo para cadastrar um produto.
+            </p>
+
+        </div>
+
+
+        <form
+            id="formulario-produto"
+            onsubmit="salvarProduto(event)"
+        >
+
+
+            <!-- NOME -->
+
+            <div class="campo-cadastro">
+
+                <label for="nome-produto">
+                    Nome do produto
+                </label>
+
+                <input
+                    type="text"
+                    id="nome-produto"
+                    placeholder="Ex: Shampoo Dove"
+                    required
+                >
+
+            </div>
+
+
+            <!-- DESCRIÇÃO -->
+
+            <div class="campo-cadastro">
+
+                <label for="descricao-produto">
+                    Descrição
+                </label>
+
+                <textarea
+                    id="descricao-produto"
+                    placeholder="Digite uma descrição do produto"
+                    rows="4"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- PREÇO E CATEGORIA -->
+
+            <div class="cadastro-duplo">
+
+
+                <div class="campo-cadastro">
+
+                    <label for="preco-produto">
+                        Preço
+                    </label>
+
+                    <input
+                        type="number"
+                        id="preco-produto"
+                        placeholder="0,00"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo-cadastro">
+
+                    <label for="categoria-produto">
+                        Categoria
+                    </label>
+
+                    <select
+                        id="categoria-produto"
+                        required
+                    >
+
+                        <option value="">
+                            Selecione
+                        </option>
+
+                        <option value="medicamentos">
+                            Medicamentos
+                        </option>
+
+                        <option value="perfumaria">
+                            Perfumaria
+                        </option>
+
+                        <option value="cosmeticos">
+                            Cosméticos
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- IMAGEM -->
+
+            <div class="campo-cadastro">
+
+                <label for="imagem-produto">
+                    Imagem do produto
+                </label>
+
+                <input
+                    type="text"
+                    id="imagem-produto"
+                    placeholder="Ex: images/shampoo.jpg"
+                    required
+                >
+
+                <small>
+                    Digite o caminho da imagem dentro do projeto.
+                </small>
+
+            </div>
+
+
+            <!-- DISPONIBILIDADE -->
+
+            <div class="campo-cadastro">
+
+                <label for="disponibilidade-produto">
+                    Disponibilidade
+                </label>
+
+                <select
+                    id="disponibilidade-produto"
+                >
+
+                    <option value="true">
+                        🟢 Disponível
+                    </option>
+
+                    <option value="false">
+                        🔴 Indisponível
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- PROMOÇÃO -->
+
+            <div class="campo-cadastro">
+
+                <label>
+                    Promoção
+                </label>
+
+
+                <label
+                    style="
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        cursor: pointer;
+                        margin-top: 8px;
+                    "
+                >
+
+                    <input
+                        type="checkbox"
+                        id="produto-promocao"
+                        onchange="controlarPromocao()"
+                        style="
+                            width: 18px;
+                            height: 18px;
+                            cursor: pointer;
+                        "
+                    >
+
+                    <span>
+                        🔥 Colocar produto em promoção
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- PREÇO PROMOCIONAL -->
+
+            <div
+                class="campo-cadastro"
+                id="campo-preco-promocional"
+                style="display: none;"
+            >
+
+                <label for="preco-promocional">
+                    Preço promocional
+                </label>
+
+                <input
+                    type="number"
+                    id="preco-promocional"
+                    placeholder="0,00"
+                    min="0"
+                    step="0.01"
+                >
+
+                <small>
+                    O preço promocional deve ser menor que o preço normal.
+                </small>
+
+            </div>
+
+
+            <!-- BOTÃO -->
+
+            <button
+                type="submit"
+                class="botao-salvar-produto"
+                id="botao-salvar"
+            >
+                💾 Salvar produto
+            </button>
+
+
+        </form>
+
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+/*
+==========================================
+VERIFICA SE É CADASTRO OU EDIÇÃO
+==========================================
+*/
+
+
+const parametros =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const idEdicao =
+    parametros.get("editar");
+
+
+let produtoEditando = null;
+
+
+
+/*
+==========================================
+CONTROLE DA PROMOÇÃO
+==========================================
+*/
+
+
+function controlarPromocao() {
+
+    const checkbox =
+        document.getElementById(
+            "produto-promocao"
+        );
+
+
+    const campo =
+        document.getElementById(
+            "campo-preco-promocional"
+        );
+
+
+    const precoPromocional =
+        document.getElementById(
+            "preco-promocional"
+        );
+
+
+    if (checkbox.checked) {
+
+        campo.style.display = "block";
+
+        precoPromocional.required = true;
+
+    } else {
+
+        campo.style.display = "none";
+
+        precoPromocional.required = false;
+
+        precoPromocional.value = "";
+
+    }
+
+}
+
+
+
+/*
+==========================================
+SE EXISTIR ID, CARREGA O PRODUTO
+==========================================
+*/
+
+
+if (idEdicao) {
+
+    produtoEditando =
+        produtos.find(
+            produto =>
+                produto.id === Number(idEdicao)
+        );
+
+
+    if (produtoEditando) {
+
+        document
+            .getElementById("titulo-formulario")
+            .textContent =
+            "✏️ Editar produto";
+
+
+        document
+            .getElementById("descricao-formulario")
+            .textContent =
+            "Altere as informações do produto abaixo.";
+
+
+        document
+            .getElementById("subtitulo-pagina")
+            .textContent =
+            "Edição de Produto";
+
+
+        document
+            .getElementById("botao-salvar")
+            .textContent =
+            "💾 Salvar alterações";
+
+
+        document
+            .getElementById("nome-produto")
+            .value =
+            produtoEditando.nome;
+
+
+        document
+            .getElementById("descricao-produto")
+            .value =
+            produtoEditando.descricao;
+
+
+        document
+            .getElementById("preco-produto")
+            .value =
+            produtoEditando.preco;
+
+
+        document
+            .getElementById("categoria-produto")
+            .value =
+            produtoEditando.categoria;
+
+
+        document
+            .getElementById("imagem-produto")
+            .value =
+            produtoEditando.imagem;
+
+
+        document
+            .getElementById("disponibilidade-produto")
+            .value =
+            produtoEditando.disponivel
+                ? "true"
+                : "false";
+
+
+        /*
+        ==========================================
+        CARREGA DADOS DA PROMOÇÃO
+        ==========================================
+        */
+
+
+        const promocaoAtiva =
+            produtoEditando.emPromocao === true;
+
+
+        document
+            .getElementById("produto-promocao")
+            .checked =
+            promocaoAtiva;
+
+
+        if (promocaoAtiva) {
+
+            document
+                .getElementById("preco-promocional")
+                .value =
+                produtoEditando.precoPromocional || "";
+
+
+            controlarPromocao();
+
+        }
+
+    }
+
+}
+
+
+
+/*
+==========================================
+SALVAR PRODUTO
+==========================================
+*/
+
+
+function salvarProduto(event) {
+
+    event.preventDefault();
+
+
+    const nome =
+        document
+            .getElementById("nome-produto")
+            .value
+            .trim();
+
+
+    const descricao =
+        document
+            .getElementById("descricao-produto")
+            .value
+            .trim();
+
+
+    const preco =
+        parseFloat(
+            document
+                .getElementById("preco-produto")
+                .value
+        );
+
+
+    const categoria =
+        document
+            .getElementById("categoria-produto")
+            .value;
+
+
+    const imagem =
+        document
+            .getElementById("imagem-produto")
+            .value
+            .trim();
+
+
+    const disponivel =
+        document
+            .getElementById("disponibilidade-produto")
+            .value === "true";
+
+
+    /*
+    ==========================================
+    DADOS DA PROMOÇÃO
+    ==========================================
+    */
+
+
+    const emPromocao =
+        document
+            .getElementById("produto-promocao")
+            .checked;
+
+
+    const precoPromocional =
+        parseFloat(
+            document
+                .getElementById("preco-promocional")
+                .value
+        );
+
+
+    /*
+    ==========================================
+    VALIDAÇÃO
+    ==========================================
+    */
+
+
+    if (
+        !nome ||
+        !descricao ||
+        !categoria ||
+        !imagem
+    ) {
+
+        alert(
+            "Preencha todos os campos."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        isNaN(preco) ||
+        preco < 0
+    ) {
+
+        alert(
+            "Digite um preço válido."
+        );
+
+        return;
+
+    }
+
+
+    /*
+    ==========================================
+    VALIDAÇÃO DA PROMOÇÃO
+    ==========================================
+    */
+
+
+    if (emPromocao) {
+
+        if (
+            isNaN(precoPromocional) ||
+            precoPromocional <= 0
+        ) {
+
+            alert(
+                "Digite um preço promocional válido."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            precoPromocional >= preco
+        ) {
+
+            alert(
+                "O preço promocional deve ser menor que o preço normal."
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    /*
+    ==========================================
+    MODO EDIÇÃO
+    ==========================================
+    */
+
+
+    if (produtoEditando) {
+
+        produtoEditando.nome =
+            nome;
+
+
+        produtoEditando.descricao =
+            descricao;
+
+
+        produtoEditando.preco =
+            preco;
+
+
+        produtoEditando.categoria =
+            categoria;
+
+
+        produtoEditando.imagem =
+            imagem;
+
+
+        produtoEditando.disponivel =
+            disponivel;
+
+
+        /*
+        ==========================================
+        SALVA PROMOÇÃO
+        ==========================================
+        */
+
+
+        produtoEditando.emPromocao =
+            emPromocao;
+
+
+        produtoEditando.precoPromocional =
+            emPromocao
+                ? precoPromocional
+                : 0;
+
+
+        salvarProdutos();
+
+
+        alert(
+            "Produto atualizado com sucesso!"
+        );
+
+
+        /*
+        ==========================================
+        VOLTA PARA A ADMINISTRAÇÃO
+        ==========================================
+        */
+
+
+        if (
+            categoria === "medicamentos"
+        ) {
+
+            window.location.href =
+                "admin-medicamentos.html";
+
+        }
+
+        else if (
+            categoria === "perfumaria"
+        ) {
+
+            window.location.href =
+                "admin-perfumaria.html";
+
+        }
+
+        else if (
+            categoria === "cosmeticos"
+        ) {
+
+            window.location.href =
+                "admin-cosmeticos.html";
+
+        }
+
+
+        return;
+
+    }
+
+
+    /*
+    ==========================================
+    MODO NOVO CADASTRO
+    ==========================================
+    */
+
+
+    const novoId =
+        produtos.length > 0
+            ? Math.max(
+                ...produtos.map(
+                    produto => produto.id
+                )
+            ) + 1
+            : 1;
+
+
+    const novoProduto = {
+
+        id: novoId,
+
+        nome: nome,
+
+        categoria: categoria,
+
+        descricao: descricao,
+
+        preco: preco,
+
+        imagem: imagem,
+
+        disponivel: disponivel,
+
+        emPromocao: emPromocao,
+
+        precoPromocional:
+            emPromocao
+                ? precoPromocional
+                : 0
+
+    };
+
+
+    produtos.push(
+        novoProduto
+    );
+
+
+    salvarProdutos();
+
+
+    alert(
+        "Produto cadastrado com sucesso!"
+    );
+
+
+    document
+        .getElementById("formulario-produto")
+        .reset();
+
+
+    /*
+    ==========================================
+    ESCONDE O CAMPO DE PROMOÇÃO NOVAMENTE
+    ==========================================
+    */
+
+
+    controlarPromocao();
+
+}
+
+</script>
+
+
+</body>
+
+</html>

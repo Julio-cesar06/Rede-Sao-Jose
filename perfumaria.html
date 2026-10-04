@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Perfumaria - Rede São José</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         CABEÇALHO
+    ========================================== -->
+
+    <header class="cabecalho">
+
+
+        <div class="logo">
+
+            <img
+                src="images/sao-jose.jpg"
+                alt="Logo Rede São José"
+            >
+
+            <h1>
+                Rede São José
+            </h1>
+
+            <p>
+                Sua saúde em boas mãos
+            </p>
+
+        </div>
+
+
+
+        <!-- MENU -->
+
+        <nav class="menu">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="medicamentos.html">
+                Medicamentos
+            </a>
+
+            <a href="perfumaria.html">
+                Perfumaria
+            </a>
+
+            <a href="cosmeticos.html">
+                Cosméticos
+            </a>
+
+        </nav>
+
+
+    </header>
+
+
+
+    <!-- ==========================================
+         CATÁLOGO
+    ========================================== -->
+
+    <main>
+
+        <section class="catalogo-pagina">
+
+
+            <h2>
+                🌸 Perfumaria
+            </h2>
+
+
+            <p>
+                Encontre produtos de perfumaria disponíveis na Rede São José.
+            </p>
+
+
+
+            <!-- PESQUISA -->
+
+            <div class="pesquisa">
+
+                <input
+                    type="text"
+                    id="campo-pesquisa"
+                    placeholder="🔎 Pesquisar produto..."
+                    oninput="pesquisarProdutos()"
+                >
+
+            </div>
+
+
+
+            <!-- PRODUTOS -->
+
+            <div
+                class="lista-produtos"
+                id="lista-produtos"
+            ></div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         BOTÃO DO CARRINHO
+    ========================================== -->
+
+    <button
+        class="botao-carrinho"
+        id="botao-carrinho"
+        type="button"
+    >
+
+        🛒
+
+        <span id="quantidade-carrinho">
+            0
+        </span>
+
+    </button>
+
+
+
+    <!-- ==========================================
+         CARRINHO
+    ========================================== -->
+
+    <div
+        class="carrinho"
+        id="carrinho"
+    >
+
+
+        <!-- CABEÇALHO -->
+
+        <div class="carrinho-cabecalho">
+
+            <h2>
+                🛒 Seu carrinho
+            </h2>
+
+            <button
+                id="fechar-carrinho"
+                type="button"
+            >
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             ITENS
+        ========================================== -->
+
+        <div
+            id="itens-carrinho"
+            class="itens-carrinho"
+        >
+
+            <!-- Produtos adicionados pelo JavaScript -->
+
+        </div>
+
+
+
+        <!-- ==========================================
+             TOTAL
+        ========================================== -->
+
+        <div class="carrinho-total">
+
+            <strong>
+                Total:
+            </strong>
+
+            <span id="total-carrinho">
+                R$ 0,00
+            </span>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             DADOS DO CLIENTE
+        ========================================== -->
+
+        <div class="checkout-form">
+
+
+            <h3>
+                📋 Dados para finalizar o pedido
+            </h3>
+
+
+
+            <!-- NOME -->
+
+            <label for="nome-cliente">
+                Nome:
+            </label>
+
+            <input
+                type="text"
+                id="nome-cliente"
+                placeholder="Digite seu nome"
+            >
+
+
+
+            <!-- TELEFONE -->
+
+            <label for="telefone-cliente">
+                Telefone:
+            </label>
+
+            <input
+                type="tel"
+                id="telefone-cliente"
+                placeholder="Digite seu telefone"
+            >
+
+
+
+            <!-- ENTREGA / RETIRADA -->
+
+            <label for="tipo-entrega">
+                Como deseja receber?
+            </label>
+
+            <select
+                id="tipo-entrega"
+                onchange="mostrarEndereco()"
+            >
+
+                <option value="">
+                    Selecione uma opção
+                </option>
+
+                <option value="Entrega">
+                    🚚 Entrega
+                </option>
+
+                <option value="Retirada na farmácia">
+                    🏪 Retirada na farmácia
+                </option>
+
+            </select>
+
+
+
+            <!-- ENDEREÇO -->
+
+            <div
+                id="campo-endereco"
+                style="display: none;"
+            >
+
+                <label for="endereco-cliente">
+                    Endereço para entrega:
+                </label>
+
+                <textarea
+                    id="endereco-cliente"
+                    placeholder="Digite seu endereço completo"
+                    rows="3"
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- PAGAMENTO -->
+
+            <label for="forma-pagamento">
+                Forma de pagamento:
+            </label>
+
+            <select
+                id="forma-pagamento"
+            >
+
+                <option value="">
+                    Selecione uma opção
+                </option>
+
+                <option value="Pix">
+                    💠 Pix
+                </option>
+
+                <option value="Dinheiro">
+                    💵 Dinheiro
+                </option>
+
+                <option value="Cartão de crédito">
+                    💳 Cartão de crédito
+                </option>
+
+                <option value="Cartão de débito">
+                    💳 Cartão de débito
+                </option>
+
+            </select>
+
+
+
+            <!-- OBSERVAÇÃO -->
+
+            <label for="observacao-pedido">
+                Observação:
+            </label>
+
+            <textarea
+                id="observacao-pedido"
+                placeholder="Alguma observação sobre o pedido? (opcional)"
+                rows="3"
+            ></textarea>
+
+
+        </div>
+
+
+
+        <!-- ==========================================
+             BOTÃO FINALIZAR
+        ========================================== -->
+
+        <button
+            class="botao-finalizar"
+            id="finalizar-compra"
+            type="button"
+            onclick="finalizarPedido()"
+        >
+
+            📲 Finalizar pedido pelo WhatsApp
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
